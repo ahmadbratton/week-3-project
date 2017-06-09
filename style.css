@@ -1,0 +1,51 @@
+html{
+    height: 100%;
+}
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 60vw;
+    width: 48vw;
+    border: .1px  solid green;
+    background-color: #61b34f;
+    
+}
+.content-row {
+    height: 12vw;
+    display:flex;
+}
+.squares{
+    border: .1px solid white;
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    width: 25%;
+    color: white;
+    align-items: center;
+}
+.text_content{
+    
+    height: 12vw;
+    width: 36vw;
+
+}
+
+#btn_divide {
+    color: black;
+}
+#btnx {
+    color: black;
+}
+#btn_sub {
+    color: black;
+}
+#btn_add {
+    color: black;
+
+}
