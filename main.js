@@ -21,6 +21,11 @@ const display = document.getElementById("display");
     let currentNum = "";
     let opValue = [];
     let result = 0;
+    let opIndex;
+    let mValue;
+    let dValue;
+    let aValue;
+    let sValue;
 
 for (var i = 0; i < btnList.length; i++) {
     btnList[i].addEventListener("click", function calculator(event){
@@ -54,9 +59,39 @@ if(btn.classList.contains("operators")){
 }
 if(btn.id === "btn_eq" ){
     result = numValue[0];
-    // while (condition) {
+    var i =0;
+    while ( i < opValue.length){
         
-    // }
+        if (opValue.indexOf("X") > opValue.indexOf("/") && opValue.indexOf("/") >= 0 || opValue.indexOf("X") > opValue.indexOf("+") && opValue.indexOf("+") >= 0  || opValue.indexOf("X") > opValue.indexOf("-") && opValue.indexOf("-") > 0 ){
+            opIndex = opValue.indexOf("X");
+            mValue =  numValue[opIndex] * numValue[opIndex+1];
+            numValue.splice(opIndex,2,mValue);
+            opValue.splice(opIndex,1);
+            
+       
+
+        }
+         if(opValue.indexOf("/") > opValue.indexOf("+") && opValue.indexOf("+") >= 0  || opValue.indexOf("/") > opValue.indexOf("-") && opValue.indexOf("-") >= 0){
+             opIndex = opValue.indexOf("/");
+            dValue =  numValue[opIndex] / numValue[opIndex+1];
+            numValue.splice(opIndex,2,dValue);
+            opValue.splice(opIndex,1);
+         }
+         if(opValue.indexOf("+") > opValue.indexOf("-") && opValue.indexOf("-") >= 0 ){
+             opIndex = opValue.indexOf("+");
+            aValue =  numValue[opIndex] + numValue[opIndex+1];
+            numValue.splice(opIndex,2,aValue);
+            opValue.splice(opIndex,1);
+         }
+
+
+           
+           
+           break; 
+
+        }
+        
+    
     for (var i = 0; i < opValue.length; i++) {
         if (opValue[i] === "+"){
             result = result + numValue[i+1];
@@ -75,6 +110,6 @@ if(btn.id === "btn_eq" ){
     display.innerHTML += result;
 
 }
-
-    
 }
+    
+
