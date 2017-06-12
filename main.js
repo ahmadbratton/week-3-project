@@ -32,7 +32,7 @@ for (var i = 0; i < btnList.length; i++) {
         onClick(event);
     });
 }
-
+ 
 function onClick(event){
     let btn = event.target;
 if(btn.classList.contains("number")){
@@ -108,6 +108,7 @@ if(btn.id === "btn_eq" ){
         }      
     }
     display.innerHTML += result;
+   
 
 }
 }

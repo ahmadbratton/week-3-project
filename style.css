@@ -49,3 +49,47 @@ body{
     color: black;
 
 }
+#btn_divide{
+    background-color: #83C178;
+}
+#btnx{
+    background-color: #83C178;
+}
+#btn_sub{
+    background-color: #83C178;
+}
+#btn_add{
+    background-color: #83C178;
+}
+#display{
+    color: white;
+    font-size: 30px;
+    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+#btnc:hover{
+    background-color: #83C178;
+
+}
+#btn_eq:hover{
+    background-color: #83C178;
+}
+#btn_add:hover{
+    color:white;
+
+}
+#btn_sub:hover{
+    color:white;
+}
+#btn_sub:hover{
+    color:white;
+
+}
+#btnx:hover{
+    color:white;
+}
+#btn_divide:hover{
+    color:white;
+}
