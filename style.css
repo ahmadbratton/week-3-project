@@ -1,26 +1,29 @@
-html{
+html {
     height: 100%;
 }
-body{
-    display:flex;
+
+body {
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
 }
-.container{
+
+.container {
     display: flex;
     flex-direction: column;
     height: 60vw;
     width: 48vw;
-    border: .1px  solid green;
+    border: .1px solid green;
     background-color: #61b34f;
-    
 }
+
 .content-row {
     height: 12vw;
-    display:flex;
+    display: flex;
 }
-.squares{
+
+.squares {
     border: .1px solid white;
     flex-grow: 1;
     display: flex;
@@ -29,39 +32,45 @@ body{
     color: white;
     align-items: center;
 }
-.text_content{
-    
+
+.text_content {
     height: 12vw;
     width: 36vw;
-
 }
 
 #btn_divide {
     color: black;
 }
+
 #btnx {
     color: black;
 }
+
 #btn_sub {
     color: black;
 }
+
 #btn_add {
     color: black;
+}
 
-}
-#btn_divide{
+#btn_divide {
     background-color: #83C178;
 }
-#btnx{
+
+#btnx {
     background-color: #83C178;
 }
-#btn_sub{
+
+#btn_sub {
     background-color: #83C178;
 }
-#btn_add{
+
+#btn_add {
     background-color: #83C178;
 }
-#display{
+
+#display {
     color: white;
     font-size: 30px;
     text-align: right;
@@ -69,27 +78,31 @@ body{
     align-items: center;
     justify-content: flex-end;
 }
-#btnc:hover{
-    background-color: #83C178;
 
-}
-#btn_eq:hover{
+#btnc:hover {
     background-color: #83C178;
 }
-#btn_add:hover{
-    color:white;
 
+#btn_eq:hover {
+    background-color: #83C178;
 }
-#btn_sub:hover{
-    color:white;
-}
-#btn_sub:hover{
-    color:white;
 
+#btn_add:hover {
+    color: white;
 }
-#btnx:hover{
-    color:white;
+
+#btn_sub:hover {
+    color: white;
 }
-#btn_divide:hover{
-    color:white;
+
+#btn_sub:hover {
+    color: white;
+}
+
+#btnx:hover {
+    color: white;
+}
+
+#btn_divide:hover {
+    color: white;
 }

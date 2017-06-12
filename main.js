@@ -15,102 +15,121 @@ const equalBtn = document.querySelector("#btn_eq");
 const addBtn = document.querySelector("#btn_add");
 let btnList = document.querySelectorAll(".squares");
 const display = document.getElementById("display");
+const rad = document.getElementById("btn_rad");
+const mod = document.getElementById("btn_mod");
 
-
-    let numValue =[] ;
-    let currentNum = "";
-    let opValue = [];
-    let result = 0;
-    let opIndex;
-    let mValue;
-    let dValue;
-    let aValue;
-    let sValue;
+let numValue = [];
+let currentNum = "";
+let opValue = [];
+let result = 0;
+let opIndex;
+let mValue;
+let dValue;
+let aValue;
+let sValue;
 
 for (var i = 0; i < btnList.length; i++) {
-    btnList[i].addEventListener("click", function calculator(event){
+    btnList[i].addEventListener("click", function calculator(event) {
         onClick(event);
     });
 }
- 
-function onClick(event){
+
+function onClick(event) {
     let btn = event.target;
-if(btn.classList.contains("number")){
-    display.innerHTML += btn.innerHTML;
-    currentNum += btn.innerHTML;
+    if (btn.classList.contains("number")) {
+        display.innerHTML += btn.innerHTML;
+        currentNum += btn.innerHTML;
 
 
-}
-if (btn.id === "btnc"){
-display.innerHTML = ""
-numValue =[] ;
-currentNum = "";
-opValue = [];
-result = 0;
-
-}
-if(btn.classList.contains("operators")){
-    numValue.push(parseInt(currentNum));
-    currentNum="";
-    opValue.push(btn.innerHTML);
-    display.innerHTML += btn.innerHTML;
-
-
-}
-if(btn.id === "btn_eq" ){
-    result = numValue[0];
-    var i =0;
-    while ( i < opValue.length){
-        
-        if (opValue.indexOf("X") > opValue.indexOf("/") && opValue.indexOf("/") >= 0 || opValue.indexOf("X") > opValue.indexOf("+") && opValue.indexOf("+") >= 0  || opValue.indexOf("X") > opValue.indexOf("-") && opValue.indexOf("-") > 0 ){
-            opIndex = opValue.indexOf("X");
-            mValue =  numValue[opIndex] * numValue[opIndex+1];
-            numValue.splice(opIndex,2,mValue);
-            opValue.splice(opIndex,1);
-            
-       
-
-        }
-         if(opValue.indexOf("/") > opValue.indexOf("+") && opValue.indexOf("+") >= 0  || opValue.indexOf("/") > opValue.indexOf("-") && opValue.indexOf("-") >= 0){
-             opIndex = opValue.indexOf("/");
-            dValue =  numValue[opIndex] / numValue[opIndex+1];
-            numValue.splice(opIndex,2,dValue);
-            opValue.splice(opIndex,1);
-         }
-         if(opValue.indexOf("+") > opValue.indexOf("-") && opValue.indexOf("-") >= 0 ){
-             opIndex = opValue.indexOf("+");
-            aValue =  numValue[opIndex] + numValue[opIndex+1];
-            numValue.splice(opIndex,2,aValue);
-            opValue.splice(opIndex,1);
-         }
-
-
-           
-           
-           break; 
-
-        }
-        
-    
-    for (var i = 0; i < opValue.length; i++) {
-        if (opValue[i] === "+"){
-            result = result + numValue[i+1];
-        }
-        else if (opValue[i] === "-"){
-            result = result - numValue[i+1];
-        }
-        else if (opValue[i] === "/"){
-            result = result / numValue[i+1];
-        }  
-        else if (opValue[i] === "X"){
-            result = result * numValue[i+1];
-
-        }      
     }
-    display.innerHTML += result;
-   
+    if (btn.id === "btnc") {
+        display.innerHTML = ""
+        numValue = [];
+        currentNum = "";
+        opValue = [];
+        result = 0;
+
+    }
+    if (btn.classList.contains("operators")) {
+        numValue.push(parseInt(currentNum));
+        currentNum = "";
+        opValue.push(btn.innerHTML);
+        display.innerHTML += btn.innerHTML;
+
+
+    }
+    if (btn.id === "btn_eq") {
+        result = numValue[0];
+        var i = 0;
+        for (var i = 0; i < opValue.length; i++) {
+
+            if (opValue[i] === "X") {
+                opIndex = opValue.indexOf("X");
+                mValue = numValue[opIndex] * numValue[opIndex + 1];
+                numValue.splice(opIndex, 2, mValue);
+                opValue.splice(opIndex, 1);
+                result = numValue[0];
+            }
+            if (opValue[i] === "%") {
+                opIndex = opValue.indexOf("%");
+                mValue = numValue[opIndex] % numValue[opIndex + 1];
+                numValue.splice(opIndex, 2, mValue);
+                opValue.splice(opIndex, 1);
+                result = numValue[0];
+            }
+        }
+        for (var i = 0; i < opValue.length; i++) {
+
+            if (opValue[i] === "/") {
+                opIndex = opValue.indexOf("/");
+                mValue = numValue[opIndex] / numValue[opIndex + 1];
+                numValue.splice(opIndex, 2, mValue);
+                opValue.splice(opIndex, 1);
+                result = numValue[0];
+            }
+        }
+        for (var i = 0; i < opValue.length; i++) {
+
+            if (opValue[i] === "+") {
+                opIndex = opValue.indexOf("+");
+                mValue = numValue[opIndex] + numValue[opIndex + 1];
+                numValue.splice(opIndex, 2, mValue);
+                opValue.splice(opIndex, 1);
+                result = numValue[0];
+            }
+        }
+        for (var i = 0; i < opValue.length; i++) {
+
+            if (opValue[i] === "-") {
+                opIndex = opValue.indexOf("-");
+                mValue = numValue[opIndex] - numValue[opIndex + 1];
+                numValue.splice(opIndex, 2, mValue);
+                opValue.splice(opIndex, 1);
+                result = numValue[0];
+            }
+        }
+
+
+        for (var i = 0; i < opValue.length; i++) {
+            if (opValue[i] === "+") {
+                result = result + numValue[i + 1];
+            } else if (opValue[i] === "-") {
+                result = result - numValue[i + 1];
+            } else if (opValue[i] === "/") {
+                result = result / numValue[i + 1];
+            } else if (opValue[i] === "X") {
+                result = result * numValue[i + 1];
+
+            } else if (opValue[i] === "%") {
+                result = result % numValue[i + 1];
+
+            }
+
+        }
+
+        display.innerHTML = result;
+
+
+    }
 
 }
-}
-    
-
